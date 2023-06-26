@@ -1,0 +1,73 @@
+{
+  "users": [
+    {
+      "name": "John Doe",
+      "email": "johndoe1@gmail.com",
+      "password": "123456",
+      "repassword": "123456",
+      "id": 1
+    },
+    {
+      "name": "Marzzio Chicana",
+      "email": "oizzram1@gmail.com",
+      "password": "123456789",
+      "repassword": "123456789",
+      "id": 2
+    },
+    {
+      "name": "Selene Romero",
+      "email": "selrom1@gmail.com",
+      "password": "abcd",
+      "repassword": "abcd",
+      "id": 3
+    },
+    {
+      "name": "Josue",
+      "email": "josuecarrasco12442@gmail.com",
+      "password": "Jokacx04",
+      "repassword": "Jokacx04",
+      "id": 4
+    }
+  ],
+  "data": [
+        {
+      "moneda": "Soles",
+      "precioVivienda": 64200,
+      "cuotaInicial": 4815,
+      "tasaEfectiva": 8,
+      "numeroCuotas": 120,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 360.08,
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 64200,
+      "cuotaInicial": 4815,
+      "tasaEfectiva": 10.5,
+      "numeroCuotas": 60,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 622.08,
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 100000,
+      "cuotaInicial": 10000,
+      "tasaEfectiva": 8,
+      "numeroCuotas": 75,
+      "periodoGracia": 5,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 5,
+      "cuota": 1296.62,
+      "userId": 2,
+      "id": 3
+    }
+  ]
+}

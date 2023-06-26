@@ -1,0 +1,31 @@
+<app-user-toolbar>
+  <h2>Cajas Municipales</h2>
+<div class="cajas-municipales">
+  <div class="cajas-container" *ngFor="let caja of cajasMunicipales">
+    <a [href]="caja.url" target="_blank">
+      <img [src]="caja.imagen" alt="Caja Municipal" />
+    </a>
+    <p class="caja-nombre font1">{{ caja.nombre }}</p>
+  </div>
+</div>
+
+<h2>Bancos</h2>
+<div class="bancos">
+  <div class="bancos-container" *ngFor="let banco of bancos">
+    <a [href]="banco.url" target="_blank">
+      <img [src]="banco.imagen" alt="Banco" />
+    </a>
+    <p class="banco-nombre font1">{{ banco.nombre }}</p>
+  </div>
+</div>
+
+<h2>Financieras</h2>
+<div class="financieras">
+  <div class="financieras-container" *ngFor="let financiera of financieras">
+    <a [href]="financiera.url" target="_blank">
+      <img [src]="financiera.imagen" alt="Financieras" />
+    </a>
+    <p class="financiera-nombre font1">{{ financiera.nombre }}</p>
+  </div>
+</div>
+</app-user-toolbar>

@@ -1,0 +1,119 @@
+<app-user-toolbar>
+  <div class="container">
+    <div class="content">
+  
+      <h1 class="text-center ">Registro:</h1>
+  
+      <h2>{{ currentDate }}</h2>
+      
+      <label for="moneda">Moneda:</label>
+      <div>
+        <select id="moneda" [(ngModel)]="enDolares" >
+          <option value="false">Soles</option>
+          <option value="true">Dólares</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="precioVivienda">Precio de la vivienda: </label>
+          <div>
+            <input type="number" [(ngModel)]="precioVivienda" (ngModelChange)="validarPreciovivienda()" [class.invalid]="precioViviendaInvalid">
+          </div>
+        <div *ngIf="precioViviendaInvalid" class="error-message">Debe ser mayor a 64 200 y menor de 464 200</div>
+      </div>
+  
+      <div>
+        <label for="cuotaInicial">Cuota Inicial:</label>
+          <div>
+            <input id="cuotaInicial" type="number" min="1" [(ngModel)]="cuotaInicial" required (ngModelChange)="validarCuotaInicial()">
+          </div>
+        <div *ngIf="cuotaInicialInvalid" class="error-message">La cuota inicial debe ser mayor al 7.5% del precio de la vivienda</div>           
+      </div>
+
+      <div>
+        <label for="BBP">Bono del Buen Pagador:</label>
+        <div>
+          <select [(ngModel)]="opcionSeleccionada" (change)="toggleSostenibilidad()">
+            <option value="sostenible">Vivienda Sostenible</option>
+            <option value="nosostenible">Vivienda No Sostenible</option>
+          </select>
+        </div>
+        <div>
+          <input id="BBP" type="number" min="1" [(ngModel)]="BBP" readonly>
+        </div>
+      </div>      
+      
+      <div>
+        <label for="tasaEfectiva">Tasa efectiva(%):</label>
+        <div>
+          <input id="tasaEfectiva" type="number" min="8" max="13" step="0.01" [(ngModel)]="tasaEfectivaAnual" required (ngModelChange)="validarTasaEfectiva()">
+        </div>
+        <div *ngIf="tasaEfectivaInvalid" class="error-message">La tasa efectiva debe ser mayor o igual a 8 y menor o igual a 13</div>      
+      </div>
+
+      <div>
+        <label for="SeguroDregravamen">Seguro Degravamen Mensual(%):</label>
+        <div>
+          <input id="SeguroDregravamen" type="number" [(ngModel)]="SeguroDregravamen" readonly>
+        </div>   
+      </div>
+      
+      <div>
+        <label for="SeguroInmueble">Seguro Inmueble Anual(%):</label>
+        <div>
+          <input id="SeguroInmueble" type="number"  [(ngModel)]="SeguroInmueble" readonly>
+        </div>
+      </div>
+      
+      <div>
+        <label for="numeroCuotas">Número de cuotas (meses):</label>
+        <div>
+          <input id="numeroCuotas" type="number" min="1" [(ngModel)]="numeroCuotas" required (ngModelChange)="validarNumeroCuotas()">
+        </div>
+          <div *ngIf="numeroCuotasInvalid" class="error-message">Debe ser en un periodo de 5 años a 25 años</div>
+      </div>  
+      
+      <div>
+        <label for="periodoGracia">Periodo de Gracia:</label>
+        <input id="periodoGraciaNumerico" type="number" min="0" [(ngModel)]="periodoGraciaNumerico" required>
+        <div>
+          <label for="periodoGraciaTotal">Total</label>
+          <input id="periodoGraciaTotal" type="checkbox" [(ngModel)]="periodoGraciaTotal" name="periodoGracia" (ngModelChange)="togglePeriodoGracia('total')">
+          <label for="periodoGraciaParcial">Parcial</label>
+          <input id="periodoGraciaParcial" type="checkbox" [(ngModel)]="periodoGraciaParcial" name="periodoGracia" (ngModelChange)="togglePeriodoGracia('parcial')">
+        </div>
+      </div>      
+          
+      <button class="btn btn-primary" (click)="Operacion()" >Calcular</button>
+  
+      <table *ngIf="mostrarTabla ">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Fecha</th>
+            <th>Saldo Inicial</th>
+            <th>Interés</th>
+            <th>Cuota</th>
+            <th>Amortizacion</th>
+            <th>Degravamen</th>
+            <th>Inmueble</th>
+            <th>Saldo Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let saldo of saldoInicial; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ obtenerFecha(i) }}</td>
+            <td>{{ saldo }}</td>
+            <td>{{ interes[i] }}</td> 
+            <td>{{ cuotaArr[i] }}</td>
+            <td>{{ amortizacion[i] }}</td>
+            <td>{{ degravamen[i] }}</td>
+            <td>{{ inmueble[i] }}</td>
+            <td>{{ saldoFinal[i] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-user-toolbar>

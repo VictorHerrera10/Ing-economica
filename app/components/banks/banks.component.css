@@ -1,0 +1,75 @@
+.financieras,
+.cajas-municipales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+h2 {
+  font-family: 'Work Sans', sans-serif;
+  color: white;
+}
+
+.bancos {
+  display: flex;
+  flex-wrap: wrap; /* Añade esta línea para envolver las imágenes si no caben en una sola fila */
+}
+
+.financieras img,
+.cajas-municipales img{
+  width: 150px;
+  height: auto;
+  margin: 10px;
+}
+
+.financieras-container,
+.cajas-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 10px solid rgba(20,21,39,255);
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(29,31,54,255);
+  color: white;
+  border-radius: 10%; /* Agrega esta propiedad para hacer las esquinas medio circulares */
+}
+
+.financieras-nombre,
+.caja-nombre {
+  margin-top: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+
+}
+
+.bancos-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 10px solid rgba(20,21,39,255);
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(29,31,54,255);
+  color: white;
+  border-radius: 13%;
+  width: 350px; /* Establece el ancho deseado para el contenedor */
+  height: 120px; /* Establece la altura deseada para el contenedor */
+}
+
+.bancos-container img {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.banco-nombre {
+  margin-right: 500px;
+  font-weight: bold;
+  white-space: nowrap;
+
+}
